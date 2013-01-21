@@ -1,4 +1,2 @@
-cimx2_cms
+CIMX2 CMS
 =========
-
-CIMX2 cms
