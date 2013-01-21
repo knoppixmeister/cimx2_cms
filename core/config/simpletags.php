@@ -1,0 +1,4 @@
+<?php
+	defined('BASEPATH') || exit('No direct script access allowed');
+
+	$config['trigger'] = "tag:";
