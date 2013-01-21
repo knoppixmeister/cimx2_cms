@@ -1,0 +1,17 @@
+.table tbody td {
+	vertical-align: middle;
+}
+
+.hdr_butts, 
+.top_btns {
+	margin-bottom: 10px;
+}
+
+.bottom_btns {
+	margin-bottom: 10x;
+	margin-top: 10px;
+}
+
+.bottom_btns a.btn-danger {
+	float: right;
+}
