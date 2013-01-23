@@ -3,7 +3,7 @@
 
 	class Pager_Tag extends Tag {
 		function show() {
-			$type = $this->get_attribute('type', 'table');
+			$type = strtolower($this->get_attribute('type', 'table'));
 
 			$data['lang']			= $this->get_attribute('lang', CURRENT_LANGUAGE);
 			$data['page'] 			= $this->get_attribute('page', 1);
