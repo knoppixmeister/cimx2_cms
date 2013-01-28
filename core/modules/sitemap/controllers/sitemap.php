@@ -6,6 +6,12 @@
 			parent::__construct();
 		}
 
+		function index() {
+			
+
+			$this->template->build('sitemap/index', $this->data);
+		}
+
 		function xml() {
 			header("Content-Type: text/xml");
 
