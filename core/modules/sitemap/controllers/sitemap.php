@@ -7,7 +7,6 @@
 		}
 
 		function index() {
-			
 
 			$this->template->build('sitemap/index', $this->data);
 		}
