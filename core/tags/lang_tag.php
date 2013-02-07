@@ -12,7 +12,7 @@
 
 		function line() {
 			$name = $this->get_attribute("name");
-			$lang = $this->get_attribute("lang", config_item("default_language"));
+			$lang = $this->get_attribute("lang", CURRENT_LANGUAGE);
 
 			return lang($name, $lang);
 		}
