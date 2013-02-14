@@ -210,7 +210,7 @@
 	| system/cache/ folder.  Use a full server path with trailing slash.
 	|
 	*/
-	$config['cache_path'] = 'ci_cache';
+	$config['cache_path'] = dirname(__FILE__).'/../ci_cache/';
 
 	/*
 	|--------------------------------------------------------------------------
