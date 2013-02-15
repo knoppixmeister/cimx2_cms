@@ -29,7 +29,8 @@
 	if(defined('ENVIRONMENT')) {
 		switch (ENVIRONMENT) {
 			case 'development':	ini_set('display_errors', 'on');
-								error_reporting(E_ALL ^ E_STRICT ^ E_NOTICE);
+								if(version_compare(PHP_VERSION, '5.4.0') >= 0) error_reporting(E_ALL ^ E_STRICT ^ E_NOTICE);
+								else error_reporting(E_ALL ^ E_NOTICE);
 								break;
 
 			case 'testing':
