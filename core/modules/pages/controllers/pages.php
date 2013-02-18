@@ -39,6 +39,7 @@
 				$text = str_replace(array('&#39;', '&quot;'), array("'", '"'), $p['text_'.CURRENT_LANGUAGE]);
 
 				$this->data['page_slug'] = $p['slug'];
+				$this->data['page_uri'] = $p['uri'];
 
 				if($p['layout_id'] > 0) {
 					$pl = $this->page_layouts_model->get_by(array('id' 	=>	$p['layout_id'], 'theme' =>	CURRENT_THEME, ));
