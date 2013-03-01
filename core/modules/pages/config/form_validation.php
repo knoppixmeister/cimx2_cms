@@ -61,14 +61,19 @@
 										'rules'	=>	'trim', 
 									);
 		$config['pages/_edit'][] = 	array(
-										'field'	=>	'keywords_'.$k, 
-										'label'	=>	'Keywords '.strtoupper($k), 
+										'field'	=>	'meta_title_'.$k,
+										'label'	=>	'Meta Title '.strtoupper($k),
+										'rules'	=>	'trim',
+									);
+		$config['pages/_edit'][] = 	array(
+										'field'	=>	'meta_keywords_'.$k,
+										'label'	=>	'Meta Keywords '.strtoupper($k),
 										'rules'	=>	'trim', 
 									);
 		$config['pages/_edit'][] = 	array(
-										'field'	=>	'description_'.$k, 
-										'label'	=>	'Description '.strtoupper($k), 
-										'rules'	=>	'trim', 
+										'field'	=>	'meta_description_'.$k,
+										'label'	=>	'Meta Description '.strtoupper($k),
+										'rules'	=>	'trim',
 									);
 	}
 	

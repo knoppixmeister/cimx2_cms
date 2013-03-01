@@ -103,14 +103,19 @@
 											'text'		=>	get_post('text_'.$k), 
 										);
 					$lang_fields[]	=	array(
-											'field'		=>	'keywords', 
-											'language'	=>	$k, 
-											'text'		=>	get_post('keywords_'.$k), 
+											'field'		=>	'meta_title',
+											'language'	=>	$k,
+											'text'		=>	get_post('meta_title_'.$k),
 										);
 					$lang_fields[]	=	array(
-											'field'		=>	'description', 
-											'language'	=>	$k, 
-											'text'		=>	get_post('description_'.$k), 
+											'field'		=>	'meta_keywords',
+											'language'	=>	$k,
+											'text'		=>	get_post('meta_keywords_'.$k),
+										);
+					$lang_fields[]	=	array(
+											'field'		=>	'meta_description',
+											'language'	=>	$k,
+											'text'		=>	get_post('meta_description_'.$k),
 										);
 				}
 

@@ -140,15 +140,31 @@
 					foreach(config_item('supported_languages') as $k => $v) {
 				?>
 				<div class="control-group">
-					<label for="keywords_<?php e($k)?>" class="control-label">Keywords <?php e(strtoupper($k))?></label>
+					<label for="meta_title_<?php e($k)?>" class="control-label">Title <?php e(strtoupper($k))?></label>
 					<div class="controls">
-						<input type="text" id="keywords_<?php e($k)?>" name="keywords_<?php e($k)?>" value="<?php e(set_value('keywords_'.$k, $item['keywords_'.$k]))?>" class="input-xlarge span10">
+						<input 	type="text"
+								id="meta_title_<?php e($k)?>"
+								name="meta_title_<?php e($k)?>"
+								value="<?php e(set_value('meta_title_'.$k, $item['meta_title_'.$k]))?>" class="input-xlarge span10"/>
 		            </div>
           		</div>
 				<div class="control-group">
-					<label for="description_<?php e($k)?>" class="control-label">Description <?php e(strtoupper($k))?></label>
+					<label for="meta_keywords_<?php e($k)?>" class="control-label">Keywords <?php e(strtoupper($k))?></label>
 					<div class="controls">
-						<textarea rows="10" id="description_<?php e($k)?>" name="description_<?php e($k)?>" class="input-xlarge span10"><?php e(set_value('description_'.$k, $item['description_'.$k]))?></textarea>
+						<input type="text"
+								id="meta_keywords_<?php e($k)?>"
+								name="meta_keywords_<?php e($k)?>"
+								value="<?php e(set_value('meta_keywords_'.$k, $item['meta_keywords_'.$k]))?>"
+								class="input-xlarge span10"/>
+		            </div>
+          		</div>
+				<div class="control-group">
+					<label for="meta_description_<?php e($k)?>" class="control-label">Description <?php e(strtoupper($k))?></label>
+					<div class="controls">
+						<textarea rows="10"
+								id="meta_description_<?php e($k)?>"
+								name="meta_description_<?php e($k)?>" 
+								class="input-xlarge span10"><?php e(set_value('meta_description_'.$k, $item['meta_description_'.$k]))?></textarea>
 					</div>
 				</div>
 				<?php
@@ -246,7 +262,7 @@
 				</div>
 
 				<div class="control-group">
-					<label for="input01" class="control-label">Start publish<br/>(date & time)</label>
+					<label for="input01" class="control-label">End publish<br/>(date & time)</label>
 					<div class="controls">
 					<?php
 						if(empty($item['publish_end_date'])) $ed = "";

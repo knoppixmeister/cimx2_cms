@@ -54,8 +54,9 @@
 				$this->data['page_css']	= $p['css'];
 				$this->data['page_js']	= $p['javascript'];
 
-				$this->data['meta_keywords'] 	= $p['keywords_'.CURRENT_LANGUAGE];
-				$this->data['meta_description'] = $p['description_'.CURRENT_LANGUAGE];
+				$this->data['meta_title'] 		= $p['meta_title_'.CURRENT_LANGUAGE];
+				$this->data['meta_keywords'] 	= $p['meta_keywords_'.CURRENT_LANGUAGE];
+				$this->data['meta_description'] = $p['meta_description_'.CURRENT_LANGUAGE];
 
 				if($p['visibility'] == "password") {
 					$c = $this->input->cookie('page_password_'.$p['id']);
