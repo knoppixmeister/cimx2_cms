@@ -53,7 +53,8 @@
 																			 $this->load->view($view, $data, TRUE));
 			}
 
-			$data['tag:template:title'] = empty($data['title']) ? "" : $data['title'];
+			$data['tag:template:meta_title'] = empty($data['meta_title']) ? "" : $data['meta_title'];
+			$data['tag:template:title']		= empty($data['title']) ? "" : $data['title'];
 
 			$out = $data['tag:template:body'];
 
