@@ -2,16 +2,16 @@
 	defined('BASEPATH') || exit('No direct script access allowed');
 
 	class Sitemap extends Frontend_Controller {
-		function __construct() {
+		public function __construct() {
 			parent::__construct();
 		}
 
-		function index() {
+		public function index() {
 
 			$this->template->build('sitemap/index', $this->data);
 		}
 
-		function xml() {
+		public function xml() {
 			header("Content-Type: text/xml");
 
 			e('<?xml version="1.0" encoding="UTF-8"?>'."\r\n");
