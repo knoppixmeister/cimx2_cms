@@ -28,7 +28,7 @@
 					elseif(config_item('lang_switch_method') == 'url') {
 						foreach(config_item('supported_languages') as $lang => $val) {
 							e('	<sitemap>
-									<loc>'.site_url($lang."/".$m['slug'].'/sitemap/xml').'</loc>
+									<loc>'.base_url().$lang."/".$m['slug'].'/sitemap/xml'.'</loc>
 									<lastmod>'.date('c').'</lastmod>
 								</sitemap>');
 						}
