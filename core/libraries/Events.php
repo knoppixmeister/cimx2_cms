@@ -18,7 +18,7 @@
 			if(!$results = $CI->modules_model->get_all()) return FALSE;
 
 			foreach($results as $r) {
-				if(!$details_class = self::_spawn_class($r['slug'], $r['info']['is_system'])) continue;
+				if(!$details_class = self::_spawn_class($r['slug'], !empty($r['info']['is_system']) ? $r['info']['is_system'] : false)) continue;
 			}
 
 			return TRUE;
