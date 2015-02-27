@@ -16,8 +16,9 @@
     </div>
 
 	<ul class="nav nav-tabs">
-	    <li class="active"><a href="#tab1" data-toggle="tab">Generals</a></li>
-	    <li><a href="#tab2" data-toggle="tab">Options</a></li>
+		<li class="active"><a href="#tab1" data-toggle="tab">Generals</a></li>
+		<li><a href="#tab2" data-toggle="tab">SEO data</a></li>
+		<li><a href="#tab3" data-toggle="tab">Options</a></li>
     </ul>
     <div class="tab-content">
 	    <div class="tab-pane active" id="tab1">
@@ -101,6 +102,47 @@
 
 	    </div>
 	    <div class="tab-pane" id="tab2">
+
+	    	<fieldset>
+				<?php
+					foreach(config_item('supported_languages') as $k => $v) {
+				?>
+				<div class="control-group">
+					<label	for="meta_title_<?php e($k)?>"
+							class="control-label">Title <?php e(strtoupper($k))?></label>
+					<div class="controls">
+						<input 	type="text"
+								id="meta_title_<?php e($k)?>"
+								name="meta_title_<?php e($k)?>"
+								value="<?php e(set_value('meta_title_'.$k, $item['meta_title_'.$k]))?>" class="input-xlarge span10"/>
+		            </div>
+          		</div>
+				<div class="control-group">
+					<label for="meta_keywords_<?php e($k)?>" class="control-label">Keywords <?php e(strtoupper($k))?></label>
+					<div class="controls">
+						<input	type="text"
+								id="meta_keywords_<?php e($k)?>"
+								name="meta_keywords_<?php e($k)?>"
+								value="<?php e(set_value('meta_keywords_'.$k, $item['meta_keywords_'.$k]))?>"
+								class="input-xlarge span10"/>
+		            </div>
+          		</div>
+				<div class="control-group">
+					<label for="meta_description_<?php e($k)?>" class="control-label">Description <?php e(strtoupper($k))?></label>
+					<div class="controls">
+						<textarea	rows="10"
+									id="meta_description_<?php e($k)?>"
+									name="meta_description_<?php e($k)?>" 
+									class="input-xlarge span10"><?php e(set_value('meta_description_'.$k, $item['meta_description_'.$k]))?></textarea>
+					</div>
+				</div>
+				<?php
+					}
+				?>
+        	</fieldset>
+	    	
+	    </div>
+	    <div class="tab-pane" id="tab3">
 
 	    	<fieldset>
 

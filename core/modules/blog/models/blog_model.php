@@ -1,11 +1,18 @@
 <?php
-	defined('BASEPATH') || exit('No direct script access allowed');
+	defined('BASEPATH') || exit('No direct script access allowed!');
 
 	class Blog_model extends MX2_Multilang_model {
 		function __construct() {
 			parent::__construct();
 
-			$this->_lang_fields = array('title', 'preview', 'text', );
+			$this->_lang_fields =	array(
+										'title',
+										'preview',
+										'text',
+										'meta_title',
+										'meta_keywords',
+										'meta_description',
+									);
 		}
 
 		function get($id) {

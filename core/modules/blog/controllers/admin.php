@@ -66,7 +66,7 @@
 
 				$this->data['title'] = "Blog entry edit";
 
-				$this->template->enable_body_parser(FALSE)
+				$this->template->enable_body_parser(false)
 								->build('blog/admin/edit', $this->data);
 			}
 			else {
@@ -77,7 +77,8 @@
 							'slug'				=>	get_post('slug'), 
 							'category_id'		=>	get_post('category'), 
 							'status'			=>	get_post('status'), 
-							'comments_enabled'	=>	$comments_enabled, 
+							'comments_enabled'	=>	$comments_enabled,
+							'user_id'			=>	2,
 						);
 
 				$lang_fields = array();
@@ -97,6 +98,22 @@
 											'language'	=>	$k, 
 											'text'		=>	get_post('text_'.$k), 
 										);
+
+					$lang_fields[]	=	array(
+						'field'		=>	'meta_title',
+						'language'	=>	$k,
+						'text'		=>	get_post('meta_title_'.$k),
+					);
+					$lang_fields[]	=	array(
+						'field'		=>	'meta_keywords',
+						'language'	=>	$k,
+						'text'		=>	get_post('meta_keywords_'.$k),
+					);
+					$lang_fields[]	=	array(
+						'field'		=>	'meta_description',
+						'language'	=>	$k,
+						'text'		=>	get_post('meta_description_'.$k),
+					);
 				}
 
 				if($this->data['action'] == "add") {
