@@ -5,7 +5,7 @@
 		function __construct() {
 			parent::__construct();
 
-			$this->_lang_fields = array('title', 'text', 'meta_title', 'meta_keywords', 'meta_description', );
+			$this->_lang_fields = array('title', 'text', 'meta_title', 'meta_keywords', 'meta_description');
 		}
 
 		function get_pages_tree($parent_id=0) {
