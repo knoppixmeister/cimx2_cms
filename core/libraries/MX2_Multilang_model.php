@@ -42,9 +42,9 @@
 		}
 
 		function insert($regular_fields=array(), $lang_fields=array()) {
-			$id = parent::insert($regular_fields, TRUE);
+			$id = parent::insert($regular_fields, true);
 
-			if(empty($id)) return FALSE;
+			if(empty($id)) return false;
 
 			foreach($lang_fields as $f) {
 				$this->multilang_model->insert(
@@ -55,7 +55,7 @@
 												'language'			=>	$f['language'], 
 												'text'				=>	$f['text'], 
 											), 
-											TRUE 
+											true
 										);
 			}
 
