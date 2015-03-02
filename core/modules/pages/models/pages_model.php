@@ -2,7 +2,7 @@
 	defined('BASEPATH') || exit('No direct script access allowed');
 
 	class Pages_model extends MX2_Multilang_model {
-		function __construct() {
+		public function __construct() {
 			parent::__construct();
 
 			$this->_lang_fields = array('title', 'text', 'meta_title', 'meta_keywords', 'meta_description');
