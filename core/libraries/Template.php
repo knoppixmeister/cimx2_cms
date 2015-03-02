@@ -45,7 +45,7 @@
 			return $this;
 		}
 
-		function build($view='', $data=array(), $return=FALSE) {
+		function build($view='', $data=array(), $return=false) {
 			if(empty($this->theme)) $this->set_theme('default');
 
 			if(!empty($view)) {
@@ -53,10 +53,17 @@
 																			 $this->load->view($view, $data, TRUE));
 			}
 
-			$data['tag:template:meta_title'] = empty($data['meta_title']) ? "" : $data['meta_title'];
-			$data['tag:template:title']		= empty($data['title']) ? "" : $data['title'];
+			$data['tag:template:meta_title']	=	empty($data['meta_title']) ? '' : $data['meta_title'];
+			$data['tag:template:title']			=	empty($data['title']) ? '' : $data['title'];
 
 			$out = $data['tag:template:body'];
+
+			$data['item'] = array(
+				'meta_title'		=>	empty($data['meta_title']) ? '' : $data['meta_title'],
+				'title'				=>	empty($data['title']) ? '' : $data['title'],
+				'meta_description'	=>	!empty($data['meta_description']) ? $data['meta_description'] : '',
+				'meta_keywords'		=>	!empty($data['meta_keywords']) ? $data['meta_keywords'] : '',
+			);
 
 			if(!empty($this->layout)) {
 				if(!$this->body_parser_enabled) {
@@ -76,7 +83,7 @@
 				}
 				else $str = file_get_contents($this->find_theme($this->theme)."/".$this->theme."/layouts/".$this->layout);
 
-				$out = $this->parser->parse_string($str, $data, TRUE);
+				$out = $this->parser->parse_string($str, $data, true);
 
 				if(!$this->body_parser_enabled) $out = str_ireplace('%tag:template:body%', $tmp_out, $out);
 			}
