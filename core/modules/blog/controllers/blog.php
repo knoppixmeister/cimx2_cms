@@ -34,7 +34,7 @@
 			$this->template->build('blog/index', $this->data);
 		}
 
-		function view_by_date($year=NULL, $month=NULL, $slug=NULL) {
+		public function view_by_date($year=null, $month=null, $slug=null) {
 			if(!is_numeric($year) || !is_numeric($month)) show_404();
 
 			if(empty($slug)) {
@@ -58,9 +58,12 @@
 														);
 
 				if(empty($this->data['item'])) show_404();
+	
+				$this->data['meta_title'] =	!empty($this->data['item']['meta_title_'.CURRENT_LANGUAGE]) ?
+											$this->data['item']['meta_title_'.CURRENT_LANGUAGE] :
+											lang('blog_blog')." | ".$this->data['item']['meta_title_'.CURRENT_LANGUAGE];
 
-				$this->data['title'] = lang('blog_blog')." | ".$this->data['item']['title_'.CURRENT_LANGUAGE];
-
+				$this->data['meta_keywords'] 	= '...';
 				$this->data['meta_description'] = htmlspecialchars($this->data['item']['title_'.CURRENT_LANGUAGE]);
 
 				$this->template->build('blog/view', $this->data);
