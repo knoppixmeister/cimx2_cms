@@ -1,5 +1,5 @@
 <?php
-	defined('BASEPATH') || exit('No direct script access allowed');
+	defined('BASEPATH') || exit('No direct script access allowed!');
 
 	class Pages extends Frontend_Controller {
 		function __construct() {
@@ -31,8 +31,8 @@
 		}
 
 		function _page($uri=NULL) {
-			if(empty($uri)) $p = $this->pages_model->get_by(array('is_default' => DB_TRUE, 'status' => 'live', ));
-			else $p = $this->pages_model->get_by(array('uri' => $uri, 'status' => 'live', ));
+			if(empty($uri)) $p = $this->pages_model->get_by(array('is_default' => DB_TRUE, 'status' => 'live'));
+			else $p = $this->pages_model->get_by(array('uri' => $uri, 'status' => 'live'));
 
 			if(empty($p) || (time() < $p['publish_start_time'])) $this->_404();
 			else {
@@ -54,15 +54,25 @@
 				$this->data['page_css']	= $p['css'];
 				$this->data['page_js']	= $p['javascript'];
 
-				$this->data['meta_title'] 		= $p['meta_title_'.CURRENT_LANGUAGE];
-				$this->data['meta_keywords'] 	= $p['meta_keywords_'.CURRENT_LANGUAGE];
-				$this->data['meta_description'] = $p['meta_description_'.CURRENT_LANGUAGE];
+				$this->data['meta_title'] 		=	!empty($p['meta_title_'.CURRENT_LANGUAGE]) ?
+													$p['meta_title_'.CURRENT_LANGUAGE] :
+													'';
+				$this->data['meta_keywords'] 	=	!empty($p['meta_keywords_'.CURRENT_LANGUAGE]) ?
+													$p['meta_keywords_'.CURRENT_LANGUAGE] :
+													'';
+				$this->data['meta_description'] =	!empty($p['meta_description_'.CURRENT_LANGUAGE]) ?
+													$p['meta_description_'.CURRENT_LANGUAGE] :
+													'';
 
 				if($p['visibility'] == "password") {
 					$c = $this->input->cookie('page_password_'.$p['id']);
 
 					if(empty($c)) {
-						$this->form_validation->set_rules('password', 'Password', 'required|callback__check_page_password['.$p['id'].']');
+						$this->form_validation->set_rules(
+													'password',
+													'Password',
+													'required|callback__check_page_password['.$p['id'].']'
+												);
 
 						if(!$this->form_validation->run()) {
 							$this->data['page_data'] = $p;
