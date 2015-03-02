@@ -25,7 +25,7 @@
 				return '<script type="text/javascript" src="'.base_url(TRUE).'public/modules/bootstrap/js/bootstrap.min.js"></script>';
 			}
 			elseif($src == "ext") {
-				return '<script type="text/javascript" src="https://raw.github.com/twitter/bootstrap/master/docs/assets/js/bootstrap.min.js"></script>';
+				return '<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>';
 			}
 		}
 	}
