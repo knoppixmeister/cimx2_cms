@@ -2,7 +2,7 @@
 	defined('BASEPATH') || exit('No direct script access allowed');
 
 	class Contacts extends Frontend_Controller {
-		function __construct() {
+		public function __construct() {
 			parent::__construct();
 
 			$this->load->model('pages/pages_model');
@@ -13,8 +13,8 @@
 			//$this->load->library('recaptcha/recaptcha/recaptcha', config_item('recaptcha'));
 		}
 
-		function index() {
-			$this->data['title'] = lang("contacts_contacts")." ".lang("contacts_contacts_form");
+		public function index() {
+			$this->data['meta_title'] = lang("contacts_contacts")." ".lang("contacts_contacts_form");
 
 			if(!$this->form_validation->run()) {
 				$this->template->build('contacts/index', $this->data);
