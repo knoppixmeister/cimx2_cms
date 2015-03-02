@@ -2,7 +2,7 @@
 	defined('BASEPATH') || exit('No direct script access allowed!');
 
 	class Blog_model extends MX2_Multilang_model {
-		function __construct() {
+		public function __construct() {
 			parent::__construct();
 
 			$this->_lang_fields =	array(
@@ -15,7 +15,7 @@
 									);
 		}
 
-		function get($id) {
+		public function get($id) {
 			$this->db->select("	tbl.*, 
 								u.username AS created_by_username, 
 								bc.slug AS blog_category_slug, 
